@@ -1,0 +1,110 @@
+/* ตั้งค่าพื้นฐาน */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* กล่องคอนเทนเนอร์หลัก */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* หัวข้อ Register Form */
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* การจัดการ Flex */
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-input {
+    margin-bottom: 15px;
+}
+
+/* ส่วนหัวของแต่ละ Input */
+.header-form {
+    min-width: 70px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* ปรับแต่ง Input และ Textarea */
+.form, textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form:focus, textarea:focus {
+    border-color: #007bff;
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+    margin-top: 5px;
+}
+
+/* จัดการส่วนเพศและงานอดิเรก */
+.gender .flex {
+    flex-wrap: wrap;
+}
+
+.form-input > div {
+    margin-top: 5px;
+    color: #444;
+}
+
+/* ปุ่มส่งข้อมูล */
+.center {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
