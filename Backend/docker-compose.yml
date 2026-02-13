@@ -17,7 +17,7 @@ services:
     restart: always
 
   phpmyadmin:
-    image: phpmyadmin:latest
+    image: phpmyadmin:latest 
     container_name: phpmyadmin_700
     environment:
       PMA_HOST: db
