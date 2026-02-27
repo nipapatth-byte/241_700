@@ -57,17 +57,18 @@ app.get('/users/:id', async (req,res) => {
 app.put('/users/:id', async (req,res) => {
     try{
         let id = req.params.id;
-        let updateUser = req.body;
-        const results = await conn.query('UPDATE users SET ? WHERE id = ?', [updateUser, id]);
+        let updateUsers = req.body;
+        const results = await conn.query('UPDATE users SET ? WHERE id = ?',[updateUsers,id]);
+
         res.json({
-            massage: 'User updated successfully',
+            message: 'User updated successfully',
             data: results[0]
         });
     } catch (error) {
         console.error('Error updating user:',error);
         res.status(500).json({ message: 'Error updating user'});
     }
-})
+});
 
 app.delete('/users/:id', async (req,res) => {
     try{
