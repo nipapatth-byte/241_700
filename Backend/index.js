@@ -4,6 +4,9 @@ const port = 8000;
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 app.use(bodyParser.json());
+const cors = require('cors');
+ 
+app.use(cors());
 
 let conn = null;
 const initMtSQL = async () => {
