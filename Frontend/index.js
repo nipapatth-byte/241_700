@@ -1,3 +1,4 @@
+//ตรวจสอบว่ากรอกข้อมูลครบไหม ถ้าไม่คืนค่า error
 const validateData = (userData) => {
     let errors = [];
     if (!userData.firstName) {
@@ -21,6 +22,7 @@ const validateData = (userData) => {
     return errors;
 }
 
+//เก็บข้อมูลจากฟอร์ม ต้องมี
 const submitData = async () => {
   let firstNameDOM = document.querySelector("input[name=firstname]");
   let lastNameDOM = document.querySelector("input[name=lastname]");
@@ -55,10 +57,10 @@ const submitData = async () => {
         throw{
             message: 'กรุณากรอกข้อมูลให้ครบถ้วน',
             errors: errors
-        }
+        };
     }
     
-
+    // ส่งข้อมูลไป Backend API
     const response = await axios.post("http://localhost:8000/users", userData);
     console.log("response", response);
     messageDOM.innerText = "บันทึกข้อมูลสำเร็จ";
@@ -66,9 +68,13 @@ const submitData = async () => {
   } catch (error) {
     console.log('error message:',error.message);
     console.log('error details:',error.error);
-    //if (error.response) {
-    //  console.log("Error response:", error.response.data.message);
-    //}
+
+    if (error.response) {
+      console.log("Error response:", error.response.data.message);
+      error.message = error.response.data.message
+      error.errors = error.response.data.errors
+    }
+
     let htmlData = '<div>'
        htmlData += `<div>${error.message}</div>`;
        htmlData += '<ul>';
